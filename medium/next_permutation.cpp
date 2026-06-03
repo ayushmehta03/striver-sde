@@ -30,6 +30,47 @@ vector<int>NextP(vector<int>&nums){
     return nums;
 }
 
+
+// using algorithm
+
+void findNextP(vector<int>&nums){
+    int idx=-1;
+
+    int n=nums.size();
+
+ //1. Find the first decreasing element from end
+
+    for(int i=n-2;i>=0;i--){
+        if(nums[i]<nums[i+1]){
+            idx=i;
+            break;
+        }
+    }
+
+    // if no such point found it means the given input is the last permutation return the first one by reversing it
+    if(idx==-1){
+        reverse(nums.begin(),nums.end());
+        return;
+    }
+
+    //2. replace the idx element with the greater one will eventually help in getting the next permutation
+
+    for(int i=n-1;i>idx;i--){
+        if(nums[i]>nums[idx]){
+            swap(nums[i],nums[idx]);
+            break;
+        }
+    }
+
+    // reverse the part after idx to get the minimum after changes made
+
+    reverse(nums.begin()+idx+1,nums.end());
+
+
+
+
+}
+
 int main(){
     int n;
 
@@ -38,9 +79,8 @@ int main(){
     vector<int>nums(n);
     for(int i=0;i<n;i++)cin>>nums[i];
 
-
-    vector<int>ans=NextP(nums);
-    for(int num:ans) cout<<num<<" ";
+       findNextP(nums);
+    for(int num:nums) cout<<num<<" ";
 
     return 0;
     
