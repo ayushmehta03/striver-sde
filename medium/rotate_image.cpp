@@ -10,7 +10,7 @@ using namespace std;
 void rotate(vector<vector<int>>&matrix){
 
 
-    // tarnspose the matrix first 
+    // transpose the matrix first 
     // interchanging the rows and cols
 
     int n=matrix.size();
