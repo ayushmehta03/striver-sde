@@ -6,6 +6,9 @@ using namespace std;
 
 
 
+//tc=O(N+M) traversing both nums 1 and nums2
+//sc O(1) no additional ds usage 
+
 void mergeSortedArr(vector<int>&nums1,int m, vector<int>&nums2,int n){
 
 
