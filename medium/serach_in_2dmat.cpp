@@ -8,7 +8,7 @@ using namespace std;
 //1. instead of traversing the whole matrix traverse row wise with the help of range
 
 
-bool bs(vector<int>&nums,int t){
+/* bool bs(vector<int>&nums,int t){
     int low=0,high=nums.size()-1;
 
     while(low<=high){
@@ -41,7 +41,38 @@ bool way1(vector<vector<int>>&matrix,int target){
 
 
 }
+*/
 
+
+// second way flatten 2d matrix into 1d array 
+
+bool way2(vector<vector<int>>&matrix,int t){
+ int n=matrix.size();
+    int m=matrix[0].size();
+
+    // start from 0 last element posistion is m*n-1 
+    int low=0,high=m*n-1;
+
+    while(low<=high){
+
+        int mid=(low+high)/2;
+
+        //get the exact row
+        int row=mid/m;
+
+        int col=mid%m;
+
+        if(matrix[row][col]==t) return true;
+
+        else if(matrix[row][col]<t)low=mid+1;
+
+        else high=mid-1;
+
+
+    }
+
+    return false;
+}
 
 
 
@@ -54,7 +85,7 @@ int main(){
 
 
     int t=5;
-    if(way1(matrix,t)){
+    if(way2(matrix,t)){
         cout<<"yes target exists";
     }
 
