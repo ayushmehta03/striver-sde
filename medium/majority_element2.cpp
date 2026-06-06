@@ -9,6 +9,9 @@ using namespace std;
 // there can be most two elements hoding this condition 
 
 
+// tc=O(n) traversing the whole vector/arr
+//sc = O(1) only variable used
+
 
 vector<int>majorityElement(vector<int>&nums){
 
