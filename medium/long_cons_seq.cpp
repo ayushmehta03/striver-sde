@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<unordered_set>
 #include<climits>
 using namespace std;
 
@@ -53,6 +54,61 @@ int longestCS(vector<int>&nums){
 
 
 }
+
+
+//approach 2 using hashset 
+
+// tc=  O(n) and sc=O(n)
+
+int longestConsecutive(vector<int>&nums){
+
+    int n=nums.size();
+
+    // if the vector or array is empty
+
+    if(n==0) return 0;
+
+
+    int longest=1;
+
+    unordered_set<int>st;
+
+
+    // put all the element into the set
+    for(int i=0;i<n;i++)st.insert(nums[i]);
+
+
+
+    //traverse the set to find longest sequence
+
+    for(auto it:st){
+
+        // check if it is starting number of sequence
+    if(st.find(it-1)==st.end()){
+
+
+        //count of current seq
+        int cnt=1;
+        // starting element of seq
+        int x=it;
+
+        // Find consecutive numbers in the set
+        while(st.find(x+1)!=st.end()){
+            //move to the next one
+            x=x+1;
+
+            //increment the count of the sequence
+            cnt+=1;
+        }
+         // Update the longest sequence length
+
+        longest=max(longest,cnt);
+    }
+    }
+
+    return longest;
+}
+
 
 int main(){
 
