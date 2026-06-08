@@ -61,6 +61,20 @@ int main(){
     int t=0;
 
     vector<vector<int>>ans=Solution(nums,t);
+    
+    
+    if(ans.size()==0) cout<<"no pair found.";
+    
+    else{
+        for(int i=0;i<ans.size();i++){
+          cout<<" ";
+          for(int num:ans[i]){
+              cout<<num<<" ";
+          }
+        }
+    }
+    
+    return 0;
 
 }
 
