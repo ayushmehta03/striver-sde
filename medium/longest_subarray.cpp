@@ -44,6 +44,41 @@ int longestSubA(vector<int>&nums,int k){
 
 }
 
+//approach 2 
+
+//works only for positive numbers
+
+
+int longestLength(vector<int>&nums,int k){
+
+    int n=nums.size();
+
+
+    int left=0,right=0;
+
+    int sum=0,maxLen=0;
+
+    while(right<n){
+
+    while(left<=right &&sum>k){
+        sum-=nums[left];
+        left++;
+    }
+
+    if(sum==k){
+        maxLen=max(maxLen,right-left+1);
+
+    }
+
+
+    right++;
+    if(right<n) sum+=nums[right];
+
+    }
+
+    return maxLen;
+}
+
 
 
 int main(){
