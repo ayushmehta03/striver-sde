@@ -5,6 +5,7 @@
 using namespace std;
 
 
+//tc =O(N) sc=O(1)
 
 int lenghtsubA(string s){
 
