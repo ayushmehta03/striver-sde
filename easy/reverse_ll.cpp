@@ -2,6 +2,12 @@
 using namespace std;
 
 
+// tc=O(N) traversing the whole list
+// sc = O(1) no ectra space used
+
+
+
+
 class ListNode{
 
     public:
