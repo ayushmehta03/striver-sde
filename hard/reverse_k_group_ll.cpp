@@ -10,6 +10,10 @@ using namespace std;
 
 
 
+// time complexity =O(2N)
+
+//space complexity = O(1)
+
 //creating node class
 
 class ListNode{
