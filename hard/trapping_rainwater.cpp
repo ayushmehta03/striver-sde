@@ -5,6 +5,9 @@ using namespace std;
 
 
 
+//tc =O(N)
+//sc=O(1)
+
 
 int soln(vector<int>&height){
 
