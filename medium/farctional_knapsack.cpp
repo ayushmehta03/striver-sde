@@ -27,21 +27,26 @@ double fractionKs(int W, Item arr[],int n){
     int currW=0; //current weight of knapsack
     double finalVal=0.0;  //final value we can acheive
 
+     // Iterate through the sorted items
     for(int i=0;i<n;i++){
-        if(currW+arr[i].weight<=W){
+
+   // If the current item can be fully added to the knapsack       
+    if(currW+arr[i].weight<=W){
             currW+=arr[i].weight;
-            finalVal+=arr[i].value;
+            finalVal+=arr[i].value; // Add the full value of the item
 
         }
+
+        // If the current item can't be fully added, take the fractional part
 
         else{
             int rem=W-currW;
             finalVal+=(arr[i].value/(double)arr[i].weight)*(double)rem;
-            break;
+            break;  // Break as we have filled the knapsack
         }
     }
 
-    return finalVal;
+    return finalVal; // Return the maximum value that can be carried
 
 }
 
@@ -54,7 +59,8 @@ double fractionKs(int W, Item arr[],int n){
 
 int main(){
 
-    int n=3,weight=50;
+    const int n=3;
+    int weight=50;
     Item arr[n] ={{100,20},{60,10},{120,30}};
 
     cout<<"max value is: "<<fractionKs(weight,arr,n);
