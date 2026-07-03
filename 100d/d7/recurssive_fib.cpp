@@ -17,12 +17,31 @@ int fib(int n){
 
 }
 
+
+// using dp
+
+int fibA(int n){
+    if(n<=1) return n;
+
+
+    int prev2=0,prev1=1,curr;
+
+    for(int i=2;i<=n;i++){
+        curr=prev1+prev2;
+        prev2=prev1;
+        prev1=curr;
+    }
+
+    return prev1;
+}
+
 int main(){
 
     int n;
     cin>>n;
 
-    cout<<"fibonaci no: "<<fib(n);
+    cout<<"fibonaci no: "<<fib(n)<<endl;
+    cout<<"dp fib no: "<<fibA(6);
 
 
 }
